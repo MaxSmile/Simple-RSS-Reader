@@ -36,8 +36,11 @@
     
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, UINAVBAR_HEIGHT)];
     [self.view addSubview:navBar];
-    
-    [navBar pushNavigationItem:[[UINavigationItem alloc] initWithTitle:@"Feeds"] animated:NO];
+
+    UINavigationItem *top = [[UINavigationItem alloc] initWithTitle:@"Feeds"];
+    [navBar pushNavigationItem:top animated:NO];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(back)];
+    [top setLeftBarButtonItem:back];
     
     
     self.parser = nil;
@@ -63,7 +66,6 @@
     if (_parser==nil) {
         NSURL *url = [NSURL URLWithString:self.channelUrl];
         self.parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
-        
         [_parser setDelegate:self];
         [_parser setShouldResolveExternalEntities:NO];
         [_parser parse];
