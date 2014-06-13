@@ -19,5 +19,8 @@
 #define ACTIVITY_INDICATOR_WIDTH 100
 #define ACTIVITY_INDICATOR_HEIGHT 100
 
+#define kOK    @"OK"
+#define kCancel @"Cancel"
+
 
 #endif

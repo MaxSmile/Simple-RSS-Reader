@@ -8,9 +8,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ChannelsViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@interface ChannelsViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     NSMutableArray *_list;
+    UITableView *table;
 }
 @property (nonatomic,strong) NSMutableArray *list;
 

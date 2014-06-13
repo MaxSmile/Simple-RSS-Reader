@@ -16,12 +16,11 @@
 @synthesize window = _window;
 @synthesize viewController = _viewController;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     NSUserDefaults *udef = [NSUserDefaults standardUserDefaults];
     
-    int loadedTimes = [udef integerForKey:KEY_LOAD_TIMES];
+    NSInteger loadedTimes = [udef integerForKey:KEY_LOAD_TIMES];
     if (loadedTimes<1) {
         NSMutableArray *defaultChannels = [NSMutableArray arrayWithObjects:
                                            @"http://vasilkoff.com/feed/",
@@ -30,7 +29,7 @@
         [udef setObject:defaultChannels forKey:KEY_CHANNELS];
     }
     loadedTimes++;
-    
+    [udef setInteger:loadedTimes forKey:KEY_LOAD_TIMES];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
