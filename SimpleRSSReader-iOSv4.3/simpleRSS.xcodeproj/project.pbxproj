@@ -28,9 +28,7 @@
 		26D6D9D5160D6FAE00BE86F2 /* icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D6D9D4160D6FAE00BE86F2 /* icon_72.png */; };
 		26D6D9D7160D6FB200BE86F2 /* icon_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D6D9D6160D6FB200BE86F2 /* icon_144.png */; };
 		CE3E43001937B7D800B448CA /* StoryViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3E42F81937B7D800B448CA /* StoryViewController_iPad.xib */; };
-		CE3E43011937B7D800B448CA /* NewsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3E42FA1937B7D800B448CA /* NewsViewController_iPad.xib */; };
 		CE3E43021937B7D800B448CA /* StoryViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3E42FC1937B7D800B448CA /* StoryViewController_iPhone.xib */; };
-		CE3E43031937B7D800B448CA /* NewsViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3E42FE1937B7D800B448CA /* NewsViewController_iPhone.xib */; };
 		CE3E43261937BB1600B448CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3E430C1937BB1600B448CA /* AppDelegate.m */; };
 		CE3E43331937BB1600B448CA /* ChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3E431A1937BB1600B448CA /* ChannelsViewController.m */; };
 		CE3E43381937BB1600B448CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3E431F1937BB1600B448CA /* main.m */; };
@@ -75,9 +73,7 @@
 		26D6D9D4160D6FAE00BE86F2 /* icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_72.png; path = ../icon_72.png; sourceTree = "<group>"; };
 		26D6D9D6160D6FB200BE86F2 /* icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_144.png; path = ../icon_144.png; sourceTree = "<group>"; };
 		CE3E42F91937B7D800B448CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/StoryViewController_iPad.xib; sourceTree = "<group>"; };
-		CE3E42FB1937B7D800B448CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NewsViewController_iPad.xib; sourceTree = "<group>"; };
 		CE3E42FD1937B7D800B448CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/StoryViewController_iPhone.xib; sourceTree = "<group>"; };
-		CE3E42FF1937B7D800B448CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NewsViewController_iPhone.xib; sourceTree = "<group>"; };
 		CE3E430B1937BB1600B448CA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../simpleRSS/AppDelegate.h; sourceTree = "<group>"; };
 		CE3E430C1937BB1600B448CA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../simpleRSS/AppDelegate.m; sourceTree = "<group>"; };
 		CE3E43191937BB1600B448CA /* ChannelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChannelsViewController.h; path = ../simpleRSS/ChannelsViewController.h; sourceTree = "<group>"; };
@@ -231,8 +227,6 @@
 		CE3E430A1937B88B00B448CA /* xibs */ = {
 			isa = PBXGroup;
 			children = (
-				CE3E42FA1937B7D800B448CA /* NewsViewController_iPad.xib */,
-				CE3E42FE1937B7D800B448CA /* NewsViewController_iPhone.xib */,
 				CE3E42F81937B7D800B448CA /* StoryViewController_iPad.xib */,
 				CE3E42FC1937B7D800B448CA /* StoryViewController_iPhone.xib */,
 			);
@@ -300,9 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB0433B1937E7DD0043D584 /* rss_40.png in Resources */,
-				CE3E43031937B7D800B448CA /* NewsViewController_iPhone.xib in Resources */,
 				CEB043371937E7DD0043D584 /* icon_76.png in Resources */,
-				CE3E43011937B7D800B448CA /* NewsViewController_iPad.xib in Resources */,
 				CEB043381937E7DD0043D584 /* icon_100.png in Resources */,
 				CEB0433C1937E7DD0043D584 /* rss_50.png in Resources */,
 				CE3E43021937B7D800B448CA /* StoryViewController_iPhone.xib in Resources */,
@@ -351,30 +343,12 @@
 			path = ../simpleRSS;
 			sourceTree = "<group>";
 		};
-		CE3E42FA1937B7D800B448CA /* NewsViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE3E42FB1937B7D800B448CA /* en */,
-			);
-			name = NewsViewController_iPad.xib;
-			path = ../simpleRSS;
-			sourceTree = "<group>";
-		};
 		CE3E42FC1937B7D800B448CA /* StoryViewController_iPhone.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CE3E42FD1937B7D800B448CA /* en */,
 			);
 			name = StoryViewController_iPhone.xib;
-			path = ../simpleRSS;
-			sourceTree = "<group>";
-		};
-		CE3E42FE1937B7D800B448CA /* NewsViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE3E42FF1937B7D800B448CA /* en */,
-			);
-			name = NewsViewController_iPhone.xib;
 			path = ../simpleRSS;
 			sourceTree = "<group>";
 		};

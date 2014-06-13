@@ -13,5 +13,11 @@
 #define KEY_LOAD_TIMES @"loadedTimes"
 #define KEY_CHANNELS @"channels"
 
+#define UINAVBAR_HEIGHT 44
+
+#define BANNER_HEIGHT 50
+#define ACTIVITY_INDICATOR_WIDTH 150
+#define ACTIVITY_INDICATOR_HEIGHT 150
+
 
 #endif

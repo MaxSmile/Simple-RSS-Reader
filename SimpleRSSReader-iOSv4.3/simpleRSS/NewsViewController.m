@@ -7,6 +7,7 @@
 
 #import "NewsViewController.h"
 #import "StoryViewController.h"
+#import "CommonDeclarations.h"
 
 @interface NewsViewController () {
     NSMutableDictionary *item;
@@ -20,16 +21,43 @@
 
 @synthesize feeds=_feeds,parser=_parser,channelUrl=_channelUrl,element=_currentElement;
 
-- (void) viewDidLoad {
-    [super viewDidLoad];
+
+- (void) loadView {
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    self.view = [[UIView alloc] initWithFrame:bounds];
+    self.view.layer.backgroundColor = [UIColor grayColor].CGColor;
+    
+    
+    
+    UITableView *table = [[[UITableView alloc] initWithFrame:CGRectMake(0, UINAVBAR_HEIGHT, bounds.size.width, bounds.size.height-UINAVBAR_HEIGHT-BANNER_HEIGHT) style:UITableViewStylePlain] autorelease];
+    table.delegate = self;
+    table.dataSource = self;
+    [self.view addSubview:table];
+    
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, UINAVBAR_HEIGHT)];
+    [self.view addSubview:navBar];
+    
+    [navBar pushNavigationItem:[[UINavigationItem alloc] initWithTitle:@"Feeds"] animated:NO];
+    
+    
     self.parser = nil;
     self.feeds = [NSMutableArray array];
-    self.activityIndicator.layer.backgroundColor = [UIColor blackColor].CGColor;
-    self.activityIndicator.layer.masksToBounds = YES;
-    self.activityIndicator.layer.cornerRadius = 10;
-    self.activityIndicator.center = self.view.center;
-
+    CGPoint center = self.view.center;
+    activityIndicator = [[UIView alloc] initWithFrame:CGRectMake(center.x,
+                                                                 center.y,
+                                                                 ACTIVITY_INDICATOR_WIDTH,
+                                                                 ACTIVITY_INDICATOR_HEIGHT)];
+    activityIndicator.layer.backgroundColor = [UIColor blackColor].CGColor;
+    activityIndicator.layer.masksToBounds = YES;
+    activityIndicator.layer.cornerRadius = 10;
+    activityIndicator.center = self.view.center;
+    [self.view addSubview:activityIndicator];
+    UIActivityIndicatorView *wheel = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    wheel.frame = CGRectMake(0, 0, ACTIVITY_INDICATOR_WIDTH, ACTIVITY_INDICATOR_HEIGHT);
+    [activityIndicator addSubview:wheel];
+    [wheel startAnimating];
 }
+
 
 -(void)viewDidAppear:(BOOL)animated {
     if (_parser==nil) {
@@ -41,15 +69,14 @@
         [_parser parse];
     }
     
-    
 }
 
 
 #pragma mark Parser stuff
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    [self.tableView reloadData];
-    self.activityIndicator.hidden = YES;
+    [tableView reloadData];
+    activityIndicator.hidden = YES;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
@@ -100,10 +127,10 @@
     return [self.feeds count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"CellFeed";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }

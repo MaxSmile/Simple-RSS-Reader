@@ -13,12 +13,13 @@
     NSXMLParser *_parser;
     NSString *_channelUrl;
     NSString *_currentElement;
+    UITableView *tableView;
+    UIView *activityIndicator;
 }
 @property (nonatomic,strong) NSMutableArray *feeds;
 @property (nonatomic,strong) NSXMLParser *parser;
 @property (nonatomic,strong) NSString *channelUrl;
 @property (nonatomic,strong) NSString *element;
-@property (nonatomic,strong) IBOutlet UITableView *tableView;
-@property (nonatomic,strong) IBOutlet UIView *activityIndicator;
+
 
 @end
