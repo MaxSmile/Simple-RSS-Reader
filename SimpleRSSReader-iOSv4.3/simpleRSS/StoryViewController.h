@@ -11,11 +11,11 @@
 @interface StoryViewController : UIViewController<UIWebViewDelegate> {
     NSString *_feedLink;
     NSString *_feedTitle;
+    UINavigationBar *navBar;
+    UIWebView *webView;
+    UIView *activityIndicator;
 }
 @property (nonatomic,strong) NSString *feedLink;
 @property (nonatomic,strong) NSString *feedTitle;
-@property (nonatomic,strong) IBOutlet UIWebView *webView;
-@property (nonatomic,strong) IBOutlet UINavigationBar *navBar;
-@property (nonatomic,strong) IBOutlet UIView *activityIndicator;
 
 @end

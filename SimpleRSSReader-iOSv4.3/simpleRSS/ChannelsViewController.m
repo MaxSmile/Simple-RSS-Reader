@@ -8,6 +8,7 @@
 #import "ChannelsViewController.h"
 #import "CommonDeclarations.h"
 #import "NewsViewController.h"
+#import "StoryViewController.h"
 
 
 
@@ -58,20 +59,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *channelUrl = [self.list objectAtIndex:indexPath.row];
     NSLog(@"Row index %d was selected, channel %@",indexPath.row,channelUrl);
+
     NewsViewController *newsVC = [[NewsViewController alloc] init];
-    /*
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        newsVC = [[NewsViewController alloc] initWithNibName:@"NewsViewController_iPhone" bundle:nil];
-    } else {
-        newsVC = [[NewsViewController alloc] initWithNibName:@"NewsViewController_iPad" bundle:nil];
-    }
-    //*/
     if (newsVC!=nil) {
         newsVC.channelUrl = channelUrl;
         [self presentModalViewController:newsVC animated:YES];
     }
-
-    
+ 
 }
 
 @end

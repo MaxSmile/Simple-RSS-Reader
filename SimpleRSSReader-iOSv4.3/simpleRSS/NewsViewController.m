@@ -149,13 +149,8 @@
     NSString *feedTitle = [[_feeds objectAtIndex:indexPath.row] objectForKey: @"title"];
     NSLog(@"Row index %d was selected, feed %@",indexPath.row,feedLink);
     
-    StoryViewController *storyVC = nil;
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        storyVC = [[StoryViewController alloc] initWithNibName:@"StoryViewController_iPhone" bundle:nil];
-    } else {
-        storyVC = [[StoryViewController alloc] initWithNibName:@"StoryViewController_iPad" bundle:nil];
-    }
+    StoryViewController *storyVC = [[StoryViewController alloc] init];
+
     if (storyVC!=nil) {
         storyVC.feedLink = feedLink;
         storyVC.feedTitle = feedTitle;
