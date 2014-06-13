@@ -33,11 +33,16 @@
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.viewController = [[ChannelsViewController alloc] init];
+    
+    /*
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         self.viewController = [[ChannelsViewController alloc] initWithNibName:@"ChannelsViewController_iPhone" bundle:nil];
     } else {
         self.viewController = [[ChannelsViewController alloc] initWithNibName:@"ChannelsViewController_iPad" bundle:nil];
     }
+     //*/
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     

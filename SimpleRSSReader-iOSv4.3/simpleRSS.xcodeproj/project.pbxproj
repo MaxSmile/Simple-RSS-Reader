@@ -20,8 +20,6 @@
 		26A64A0215DAE159000B3DFF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A64A0115DAE159000B3DFF /* UIKit.framework */; };
 		26A64A0415DAE159000B3DFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A64A0315DAE159000B3DFF /* Foundation.framework */; };
 		26A64A0615DAE159000B3DFF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A64A0515DAE159000B3DFF /* CoreGraphics.framework */; };
-		26A64A1815DAE159000B3DFF /* ChannelsViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A64A1615DAE159000B3DFF /* ChannelsViewController_iPhone.xib */; };
-		26A64A1B15DAE159000B3DFF /* ChannelsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A64A1915DAE159000B3DFF /* ChannelsViewController_iPad.xib */; };
 		26A64A2615DAE7D5000B3DFF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A64A2515DAE7D5000B3DFF /* MediaPlayer.framework */; };
 		26A64A2815DAE7F2000B3DFF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A64A2715DAE7F2000B3DFF /* SystemConfiguration.framework */; };
 		26A64A2A15DAE8B5000B3DFF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A64A2915DAE8B5000B3DFF /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -69,8 +67,6 @@
 		26A64A0115DAE159000B3DFF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		26A64A0315DAE159000B3DFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26A64A0515DAE159000B3DFF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		26A64A1715DAE159000B3DFF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ChannelsViewController_iPhone.xib; sourceTree = "<group>"; };
-		26A64A1A15DAE159000B3DFF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ChannelsViewController_iPad.xib; sourceTree = "<group>"; };
 		26A64A2515DAE7D5000B3DFF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		26A64A2715DAE7F2000B3DFF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		26A64A2915DAE8B5000B3DFF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -235,8 +231,6 @@
 		CE3E430A1937B88B00B448CA /* xibs */ = {
 			isa = PBXGroup;
 			children = (
-				26A64A1615DAE159000B3DFF /* ChannelsViewController_iPhone.xib */,
-				26A64A1915DAE159000B3DFF /* ChannelsViewController_iPad.xib */,
 				CE3E42FA1937B7D800B448CA /* NewsViewController_iPad.xib */,
 				CE3E42FE1937B7D800B448CA /* NewsViewController_iPhone.xib */,
 				CE3E42F81937B7D800B448CA /* StoryViewController_iPad.xib */,
@@ -306,8 +300,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB0433B1937E7DD0043D584 /* rss_40.png in Resources */,
-				26A64A1815DAE159000B3DFF /* ChannelsViewController_iPhone.xib in Resources */,
-				26A64A1B15DAE159000B3DFF /* ChannelsViewController_iPad.xib in Resources */,
 				CE3E43031937B7D800B448CA /* NewsViewController_iPhone.xib in Resources */,
 				CEB043371937E7DD0043D584 /* icon_76.png in Resources */,
 				CE3E43011937B7D800B448CA /* NewsViewController_iPad.xib in Resources */,
@@ -350,24 +342,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		26A64A1615DAE159000B3DFF /* ChannelsViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				26A64A1715DAE159000B3DFF /* en */,
-			);
-			name = ChannelsViewController_iPhone.xib;
-			path = ../simpleRSS;
-			sourceTree = "<group>";
-		};
-		26A64A1915DAE159000B3DFF /* ChannelsViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				26A64A1A15DAE159000B3DFF /* en */,
-			);
-			name = ChannelsViewController_iPad.xib;
-			path = ../simpleRSS;
-			sourceTree = "<group>";
-		};
 		CE3E42F81937B7D800B448CA /* StoryViewController_iPad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

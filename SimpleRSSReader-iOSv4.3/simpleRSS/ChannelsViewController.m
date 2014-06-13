@@ -9,17 +9,32 @@
 #import "CommonDeclarations.h"
 #import "NewsViewController.h"
 
+#define UINAVBAR_HEIGHT 44
+
+#define BANNER_HEIGHT 50
+
 @implementation ChannelsViewController
 
 @synthesize list=_list;
 
+- (void) loadView {
+    [super loadView];
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    self.view = [[UIView alloc] initWithFrame:bounds];
+    self.view.layer.backgroundColor = [UIColor grayColor].CGColor;
+    self.list = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_CHANNELS];
+ 
+    UITableView *table = [[[UITableView alloc] initWithFrame:CGRectMake(0, UINAVBAR_HEIGHT, bounds.size.width, bounds.size.height-UINAVBAR_HEIGHT-BANNER_HEIGHT) style:UITableViewStylePlain] autorelease];
+    table.delegate = self;
+    table.dataSource = self;
+    [self.view addSubview:table];
+    
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, UINAVBAR_HEIGHT)];
+    [self.view addSubview:navBar];
+    
+    [navBar pushNavigationItem:[[UINavigationItem alloc] initWithTitle:@"Channels"] animated:NO];
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        self.list = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_CHANNELS];
-    }
-    return self;
+    
 }
 
 
