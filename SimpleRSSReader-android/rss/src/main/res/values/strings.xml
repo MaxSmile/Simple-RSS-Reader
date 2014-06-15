@@ -7,7 +7,13 @@
     <string name="title_section3">Section 3</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_example">Example action</string>
+    <string name="action_reload">Reload</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="defaultChannels">
+        <item>http://vasilkoff.com/feed/</item>
+        <item>http://iphone.keyvisuals.com/feed/</item>
+        <item>http://feeds2.feedburner.com/MobileOrchard</item>
+    </string-array>
 
 </resources>

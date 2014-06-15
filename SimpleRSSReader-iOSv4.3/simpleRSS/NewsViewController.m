@@ -125,6 +125,8 @@
 
 #pragma mark UITableSourceDelegate
 
+// TODO : Add custom cell to have "* Items in RSS list should contain full title and full description"
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.feeds count];
 }

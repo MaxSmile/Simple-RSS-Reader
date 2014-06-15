@@ -14,14 +14,26 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_gravity="top"></WebView>
+            <com.google.ads.AdView android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        <com.google.ads.AdView android:id="@+id/adView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            ads:adUnitId="ed1d6350171a44a9"
-            ads:adSize="BANNER"
-            ads:testDevices="TEST_EMULATOR, TEST_DEVICE_ID"
-            ads:loadAdOnCreate="true"/>
+                ads:adUnitId="ed1d6350171a44a9"
+                ads:adSize="SMART_BANNER"
+                ads:testDevices="TEST_EMULATOR, TEST_DEVICE_ID"
+                ads:loadAdOnCreate="true"
+                android:layout_gravity="bottom" />
+            </LinearLayout>
 
         </FrameLayout>
 

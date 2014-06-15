@@ -22,6 +22,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
  * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
@@ -39,6 +45,12 @@ public class NavigationDrawerFragment extends Fragment {
      * expands it. This shared preference tracks this.
      */
     private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
+
+
+    /**
+     * Preferences key for channels
+     */
+    private static final String PREF_CHANNELS = "channels";
 
     /**
      * A pointer to the current callbacks instance (the Activity).
@@ -61,14 +73,32 @@ public class NavigationDrawerFragment extends Fragment {
     public NavigationDrawerFragment() {
     }
 
+    private SharedPreferences preferences = null;
+    private Set<String> channels = null;
+
+    private SharedPreferences getPref() {
+        if (preferences == null) {
+            preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        }
+        return preferences;
+    }
+
+    private Set<String> getChannels() {
+        if (channels==null) {
+            Collection<String> defaults = new CopyOnWriteArrayList<String>(getActivity().getResources().getStringArray(R.array.defaultChannels));
+            channels = getPref().getStringSet(PREF_CHANNELS,new HashSet<String>(defaults));
+        }
+        return channels;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Read in the flag indicating whether or not the user has demonstrated awareness of the
         // drawer. See PREF_USER_LEARNED_DRAWER for details.
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        mUserLearnedDrawer = sp.getBoolean(PREF_USER_LEARNED_DRAWER, false);
+
+        mUserLearnedDrawer = getPref().getBoolean(PREF_USER_LEARNED_DRAWER, false);
 
         if (savedInstanceState != null) {
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
@@ -97,6 +127,8 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
+        String[] list = null;
+        list = getChannels().toArray(list);
         mDrawerListView.setAdapter(new ArrayAdapter<String>(
                 getActionBar().getThemedContext(),
                 android.R.layout.simple_list_item_activated_1,
@@ -244,11 +276,6 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-        if (item.getItemId() == R.id.action_example) {
-            Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
             return true;
         }
 

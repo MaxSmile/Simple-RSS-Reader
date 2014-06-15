@@ -15,12 +15,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+
+    private WebView webView = null;
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -32,10 +37,27 @@ public class MainActivity extends Activity
      */
     private CharSequence mTitle;
 
+    private String welcomeHtml() {
+        return "<html><body style='background:#123456;color:white'><h1>Welcome!</h1></body></html>";
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        webView = (WebView)findViewById(R.id.webView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(android.webkit.WebView view, java.lang.String url) {
+                return false;
+            }
+        });
+
+        webView.loadData(welcomeHtml(),"text/html","utf-8");
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -98,6 +120,10 @@ public class MainActivity extends Activity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            return true;
+        } else if (id == R.id.action_reload) {
+            Toast.makeText(this, "Reloading...", Toast.LENGTH_SHORT).show();
+            webView.reload();
             return true;
         }
         return super.onOptionsItemSelected(item);
