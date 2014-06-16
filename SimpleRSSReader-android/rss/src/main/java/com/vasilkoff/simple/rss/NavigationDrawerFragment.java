@@ -4,13 +4,17 @@ package com.vasilkoff.simple.rss;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.database.Cursor;
+import android.nfc.Tag;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.content.Loader;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,7 +37,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
-public class NavigationDrawerFragment extends Fragment {
+public class NavigationDrawerFragment extends Fragment  {
 
     /**
      * Remember the position of the selected item.
@@ -74,7 +78,6 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     private SharedPreferences preferences = null;
-    private Set<String> channels = null;
 
     private SharedPreferences getPref() {
         if (preferences == null) {
@@ -83,13 +86,6 @@ public class NavigationDrawerFragment extends Fragment {
         return preferences;
     }
 
-    private Set<String> getChannels() {
-        if (channels==null) {
-            Collection<String> defaults = new CopyOnWriteArrayList<String>(getActivity().getResources().getStringArray(R.array.defaultChannels));
-            channels = getPref().getStringSet(PREF_CHANNELS,new HashSet<String>(defaults));
-        }
-        return channels;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -121,23 +117,20 @@ public class NavigationDrawerFragment extends Fragment {
             Bundle savedInstanceState) {
         mDrawerListView = (ListView) inflater.inflate(
                 R.layout.fragment_navigation_drawer, container, false);
+
+
+
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectItem(position);
             }
         });
-        String[] list = null;
-        list = getChannels().toArray(list);
-        mDrawerListView.setAdapter(new ArrayAdapter<String>(
-                getActionBar().getThemedContext(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                new String[]{
-                        getString(R.string.title_section1),
-                        getString(R.string.title_section2),
-                        getString(R.string.title_section3),
-                }));
+
+        Cursor records = DBHelper.getInstance(getActivity()).getChannels();
+        Log.d("INTERESTING", "Count of the records is "+records.getCount());
+        mDrawerListView.setAdapter(new MenuItemAdaptor(this,records));
+
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }
@@ -281,6 +274,7 @@ public class NavigationDrawerFragment extends Fragment {
 
         return super.onOptionsItemSelected(item);
     }
+
 
     /**
      * Per the navigation drawer design guidelines, updates the action bar to show the global app

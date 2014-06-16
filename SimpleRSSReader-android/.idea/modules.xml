@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SimpleRSSReader.iml" filepath="$PROJECT_DIR$/SimpleRSSReader.iml" />
       <module fileurl="file://$PROJECT_DIR$/SimpleRSSReader-android.iml" filepath="$PROJECT_DIR$/SimpleRSSReader-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/rss/rss.iml" filepath="$PROJECT_DIR$/rss/rss.iml" />
     </modules>

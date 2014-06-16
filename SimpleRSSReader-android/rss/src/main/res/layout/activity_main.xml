@@ -14,6 +14,8 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
+
+        <!-- Content -->
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -34,6 +36,7 @@
                 ads:loadAdOnCreate="true"
                 android:layout_gravity="bottom" />
             </LinearLayout>
+        <!-- /Content -->
 
         </FrameLayout>
 
