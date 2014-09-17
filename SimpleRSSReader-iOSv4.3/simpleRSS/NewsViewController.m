@@ -149,7 +149,7 @@
     feedLink = [feedLink stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     feedLink = [feedLink stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSString *feedTitle = [[_feeds objectAtIndex:indexPath.row] objectForKey: @"title"];
-    NSLog(@"Row index %d was selected, feed %@",indexPath.row,feedLink);
+    //NSLog(@"Row index %d was selected, feed %@",indexPath.row,feedLink);
     
     StoryViewController *storyVC = [[StoryViewController alloc] init];
 
